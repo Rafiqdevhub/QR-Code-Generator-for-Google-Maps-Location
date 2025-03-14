@@ -11,13 +11,6 @@ QR_BORDER: int = 4
 QR_OUTPUT_FILE: str = "my_location_qr.png"
 
 def get_save_path() -> str:
-    """
-    Get the directory path where the user wants to save the QR code.
-    Creates the directory if it doesn't exist.
-    
-    Returns:
-        str: Full path where the QR code will be saved
-    """
     while True:
         save_dir = input("Enter the directory path to save the QR code (or press Enter for current directory): ").strip()
         
@@ -33,12 +26,6 @@ def get_save_path() -> str:
             print("Please enter a valid directory path.")
 
 def get_coordinates() -> Tuple[float, float]:
-    """
-    Get latitude and longitude coordinates from user input.
-    
-    Returns:
-        Tuple[float, float]: A tuple containing (latitude, longitude)
-    """
     while True:
         try:
             latitude = float(input("Enter latitude (e.g., 34.1232255): "))
@@ -51,13 +38,6 @@ def get_coordinates() -> Tuple[float, float]:
             print("Please enter valid numbers for coordinates.")
 
 def create_qr_code(coordinates: Tuple[float, float], output_file: str = QR_OUTPUT_FILE) -> None:
-    """
-    Generate a QR code for Google Maps location.
-    
-    Args:
-        coordinates: Tuple of (latitude, longitude)
-        output_file: Name of the output file (default: my_location_qr.png)
-    """
     latitude, longitude = coordinates
     maps_url = f"https://www.google.com/maps?q={latitude},{longitude}"
 
