@@ -14,6 +14,10 @@ def get_save_path() -> str:
     while True:
         save_dir = input("Enter the directory path to save the QR code (or press Enter for current directory): ").strip()
         
+        if save_dir.lower() == 'e':
+            print("Exiting the application...")
+            exit()
+            
         if not save_dir:
             return QR_OUTPUT_FILE
         
